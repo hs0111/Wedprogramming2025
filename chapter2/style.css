@@ -1,0 +1,36 @@
+ p {
+     color: #0000FF;
+     font-size: 15pt;
+ }
+
+ h2 {
+     color: #00ff00;
+     font-size: 40pt;
+
+ }
+
+ #article-content {
+     color: #ff0000;
+     font-size: 60pt;
+     margin: 0px 0px 0px 200px;
+
+     padding-left: 100px;
+     border: 20px solid #0000FF;
+
+     /* border-width: 20px;
+        border-style: solid;
+        border-color: #0000FF;*/
+
+     border-radius: 20px;
+
+ }
+
+ /* 클래스 지정자 */
+ .highliht {
+     background-color: #ffff00;
+ }
+
+ #about h2 {
+     background-color: #ff0000;
+
+ }
