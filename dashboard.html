@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Calendar - Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar (month.html과 동일, active만 Dashboard로) -->
+    <aside class="sidebar">
+      <!-- Brand -->
+      <div class="sidebar-brand">
+        <div class="sidebar-brand__title">현서 Calendar</div>
+      </div>
+
+      <!-- Nav -->
+      <nav class="sidebar-nav" aria-label="Primary">
+        <a class="sidebar-nav__item is-active" href="dashboard.html">
+          <span class="sidebar-nav__icon" aria-hidden="true">
+            <!-- Dashboard SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                 viewBox="0 0 24 24" fill="none">
+              <path d="M5 10H7C9 10 10 9 10 7V5C10 3 9 2 7 2H5C3 2 2 3 2 5V7C2 9 3 10 5 10Z"
+                    stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M17 10H19C21 10 22 9 22 7V5C22 3 21 2 19 2H17C15 2 14 3 14 5V7C14 9 15 10 17 10Z"
+                    stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M17 22H19C21 22 22 21 22 19V17C22 15 21 14 19 14H17C15 14 14 15 14 17V19C14 21 15 22 17 22Z"
+                    stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M5 22H7C9 22 10 21 10 19V17C10 15 9 14 7 14H5C3 14 2 15 2 17V19C2 21 3 22 5 22Z"
+                    stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="sidebar-nav__label">Dashboard</span>
+        </a>
+
+        <a class="sidebar-nav__item" href="month.html">
+          <span class="sidebar-nav__icon" aria-hidden="true">
+            <!-- Calendar SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                 viewBox="0 0 24 24" fill="none">
+              <path d="M8 2V5" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16 2V5" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M3.5 9.08997H20.5" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M21 8.5V17C21 20 19.5 22 16 22H8C4.5 22 3 20 3 17V8.5C3 5.5 4.5 3.5 8 3.5H16C19.5 3.5 21 5.5 21 8.5Z"
+                    stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M15.6947 13.7H15.7037" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M15.6947 16.7H15.7037" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M11.9955 13.7H12.0045" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M11.9955 16.7H12.0045" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8.29431 13.7H8.30329" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8.29431 16.7H8.30329" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="sidebar-nav__label">Calendar</span>
+        </a>
+      </nav>
+
+      <!-- (선택) month.html에서 쓰던 카테고리 + D-day 섹션 그대로 유지하고 싶으면 아래 유지 -->
+      <section class="section">
+        <h3>카테고리</h3>
+        <div class="category-grid">
+    <button class="cat" type="button" aria-label="시험">
+      <span class="cat-icon" aria-hidden="true">
+        <!-- 시험 아이콘 -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 20" fill="none">
+          <path d="M2 20C1.45 20 0.979167 19.8042 0.5875 19.4125C0.195833 19.0208 0 18.55 0 18V4C0 3.45 0.195833 2.97917 0.5875 2.5875C0.979167 2.19583 1.45 2 2 2H6.2C6.41667 1.4 6.77917 0.916667 7.2875 0.55C7.79583 0.183333 8.36667 0 9 0C9.63333 0 10.2042 0.183333 10.7125 0.55C11.2208 0.916667 11.5833 1.4 11.8 2H16C16.55 2 17.0208 2.19583 17.4125 2.5875C17.8042 2.97917 18 3.45 18 4V18C18 18.55 17.8042 19.0208 17.4125 19.4125C17.0208 19.8042 16.55 20 16 20H2ZM2 18H16V4H2V18ZM4 16H11V14H4V16ZM4 12H14V10H4V12ZM4 8H14V6H4V8ZM9 3.25C9.21667 3.25 9.39583 3.17917 9.5375 3.0375C9.67917 2.89583 9.75 2.71667 9.75 2.5C9.75 2.28333 9.67917 2.10417 9.5375 1.9625C9.39583 1.82083 9.21667 1.75 9 1.75C8.78333 1.75 8.60417 1.82083 8.4625 1.9625C8.32083 2.10417 8.25 2.28333 8.25 2.5C8.25 2.71667 8.32083 2.89583 8.4625 3.0375C8.60417 3.17917 8.78333 3.25 9 3.25Z"
+                fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="cat-label">시험</span>
+    </button>
+
+    <button class="cat" type="button" aria-label="과제">
+      <span class="cat-icon" aria-hidden="true">
+        <!-- 과제 아이콘 -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" fill="none">
+          <path d="M2 20C1.45 20 0.979167 19.8042 0.5875 19.4125C0.195833 19.0208 0 18.55 0 18V2C0 1.45 0.195833 0.979167 0.5875 0.5875C0.979167 0.195833 1.45 0 2 0H14C14.55 0 15.0208 0.195833 15.4125 0.5875C15.8042 0.979167 16 1.45 16 2V18C16 18.55 15.8042 19.0208 15.4125 19.4125C15.0208 19.8042 14.55 20 14 20H2ZM2 18H14V2H12V9L9.5 7.5L7 9V2H2V18Z"
+                fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="cat-label">과제</span>
+    </button>
+
+    <button class="cat" type="button" aria-label="알바">
+      <span class="cat-icon" aria-hidden="true">
+        <!-- 알바 아이콘 -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none">
+          <path d="M10 10C8.625 10 7.44792 9.51042 6.46875 8.53125C5.48958 7.55208 5 6.375 5 5C5 3.625 5.48958 2.44792 6.46875 1.46875C7.44792 0.489583 8.625 0 10 0C11.375 0 12.5521 0.489583 13.5312 1.46875C14.5104 2.44792 15 3.625 15 5C15 6.375 14.5104 7.55208 13.5312 8.53125C12.5521 9.51042 11.375 10 10 10ZM0 20V16.5C0 15.7917 0.177083 15.1406 0.53125 14.5469C0.885417 13.9531 1.375 13.5 2 13.1875C3.25 12.5625 4.54688 12.0833 5.89062 11.75C7.23438 11.4167 8.60417 11.25 10 11.25C11.3958 11.25 12.7656 11.4167 14.1094 11.75C15.4531 12.0833 16.75 12.5625 18 13.1875C18.625 13.5 19.1146 13.9531 19.4688 14.5469C19.8229 15.1406 20 15.7917 20 16.5V20H0Z"
+                fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="cat-label">알바</span>
+    </button>
+
+    <button class="cat" type="button" aria-label="생일">
+      <span class="cat-icon" aria-hidden="true">
+        <!-- 생일 아이콘 -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 20" fill="none">
+          <path d="M1 20C0.716667 20 0.479167 19.9042 0.2875 19.7125C0.0958333 19.5208 0 19.2833 0 19V14C0 13.45 0.195833 12.9792 0.5875 12.5875C0.979167 12.1958 1.45 12 2 12V8C2 7.45 2.19583 6.97917 2.5875 6.5875C2.97917 6.19583 3.45 6 4 6H8V4.55C7.7 4.35 7.45833 4.10833 7.275 3.825C7.09167 3.54167 7 3.2 7 2.8C7 2.55 7.05 2.30417 7.15 2.0625C7.25 1.82083 7.4 1.6 7.6 1.4L9 0L10.4 1.4C10.6 1.6 10.75 1.82083 10.85 2.0625C10.95 2.30417 11 2.55 11 2.8C11 3.2 10.9083 3.54167 10.725 3.825C10.5417 4.10833 10.3 4.35 10 4.55V6H14C14.55 6 15.0208 6.19583 15.4125 6.5875C15.8042 6.97917 16 7.45 16 8V12C16.55 12 17.0208 12.1958 17.4125 12.5875C17.8042 12.9792 18 13.45 18 14V19C18 19.2833 17.9042 19.5208 17.7125 19.7125C17.5208 19.9042 17.2833 20 17 20H1Z"
+                fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="cat-label">생일</span>
+    </button>
+
+    <button class="cat" type="button" aria-label="일상">
+      <span class="cat-icon" aria-hidden="true">
+        <!-- 일상 아이콘 -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 20" fill="none">
+          <path d="M6 20C4.34545 20 2.93182 19.3438 1.75909 18.0312C0.586364 16.7188 0 15.1146 0 13.2188C0 11.5938 0.427273 10.1458 1.28182 8.875C2.13636 7.60417 3.25455 6.79167 4.63636 6.4375C5.09091 4.52083 6 2.96875 7.36364 1.78125C8.72727 0.59375 10.2727 0 12 0C14.1273 0 15.9318 0.848958 17.4136 2.54688C18.8955 4.24479 19.6364 6.3125 19.6364 8.75C20.8909 8.91667 21.9318 9.53646 22.7591 10.6094C23.5864 11.6823 24 12.9375 24 14.375C24 15.9375 23.5227 17.2656 22.5682 18.3594C21.6136 19.4531 20.4545 20 19.0909 20H6Z"
+                fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="cat-label">일상</span>
+    </button>
+
+    <button class="cat" type="button" aria-label="여행">
+      <span class="cat-icon" aria-hidden="true">
+        <!-- 여행 아이콘 -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none">
+          <path d="M7.74282 20L5.0342 14.9589L0 12.2466L1.94254 10.3288L5.90971 11.0137L8.70041 8.21918L0.0273598 4.52055L2.32558 2.16438L12.8591 4.0274L16.2517 0.630137C16.6712 0.210046 17.1911 0 17.8112 0C18.4314 0 18.9512 0.210046 19.3707 0.630137C19.7902 1.05023 20 1.56621 20 2.17808C20 2.78995 19.7902 3.30594 19.3707 3.72603L15.9508 7.15068L17.8112 17.6712L15.4856 20L11.7647 11.3151L8.97401 14.1096L9.68536 18.0548L7.74282 20Z"
+                fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="cat-label">여행</span>
+    </button>
+  </div>
+</section>
+
+
+      <section class="section">
+  <h3>D-day</h3>
+
+  <ul class="dday-list">
+    <li class="dday danger">
+      <div class="dday-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+             class="dday-icon-svg" fill="none" aria-hidden="true">
+          <path d="M8 2V5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 2V5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M3.5 9.09H20.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 8.5V17C21 20 19.5 22 16 22H8C4.5 22 3 20 3 17V8.5C3 5.5 4.5 3.5 8 3.5H16C19.5 3.5 21 5.5 21 8.5Z"
+                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15.7 13.7H15.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M15.7 16.7H15.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M12 13.7H12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M12 16.7H12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M8.3 13.7H8.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M8.3 16.7H8.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="txt">
+        <b>D-1</b>
+        <small>웹프 기획안 제출</small>
+      </div>
+    </li>
+
+    <li class="dday warn">
+      <div class="dday-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+             class="dday-icon-svg" fill="none" aria-hidden="true">
+          <path d="M8 2V5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 2V5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M3.5 9.09H20.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 8.5V17C21 20 19.5 22 16 22H8C4.5 22 3 20 3 17V8.5C3 5.5 4.5 3.5 8 3.5H16C19.5 3.5 21 5.5 21 8.5Z"
+                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15.7 13.7H15.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M15.7 16.7H15.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M12 13.7H12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M12 16.7H12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M8.3 13.7H8.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M8.3 16.7H8.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="txt">
+        <b>D-4</b>
+        <small>교양 조별 발표</small>
+      </div>
+    </li>
+  </ul>
+</section>
+
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <header class="topbar">
+        <div class="left">Dashboard</div>
+        <div class="controls">
+            <div class="controls">
+          <button class="btn icon" type="button" aria-label="이전 달">‹</button>
+          <button class="btn icon" type="button" aria-label="다음 달">›</button>
+          <button class="btn" type="button">오늘</button>
+       
+         <button class="btn primary" type="button" id="openAddModal">
+  + 일정 추가
+</button>
+        </div>
+      </header>
+
+   <!-- Dashboard Top Cards -->
+<section class="dash-top">
+  
+  <!-- Mini Calendar (왼쪽) -->
+  <section class="mini-cal">
+    <div class="mini-cal__head">
+      <div class="mini-cal__month" id="miniCalMonthLabel">12월</div>
+    </div>
+
+    <div class="mini-cal__dow">
+      <span class="sun">일</span><span>월</span><span>화</span>
+      <span>수</span><span>목</span><span>금</span><span class="sat">토</span>
+    </div>
+
+    <div class="mini-cal__grid" id="miniCalGrid"></div>
+  </section>
+
+  <!-- D-day Card -->
+  <section class="dash-dday">
+    <h3>D-day</h3>
+
+  <ul class="dday-list">
+    <li class="dday danger">
+      <div class="dday-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+             class="dday-icon-svg" fill="none" aria-hidden="true">
+          <path d="M8 2V5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 2V5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M3.5 9.09H20.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 8.5V17C21 20 19.5 22 16 22H8C4.5 22 3 20 3 17V8.5C3 5.5 4.5 3.5 8 3.5H16C19.5 3.5 21 5.5 21 8.5Z"
+                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15.7 13.7H15.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M15.7 16.7H15.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M12 13.7H12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M12 16.7H12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M8.3 13.7H8.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M8.3 16.7H8.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="txt">
+        <b>D-1</b>
+        <small>웹프 기획안 제출</small>
+      </div>
+    </li>
+
+    <li class="dday warn">
+      <div class="dday-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+             class="dday-icon-svg" fill="none" aria-hidden="true">
+          <path d="M8 2V5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 2V5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M3.5 9.09H20.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 8.5V17C21 20 19.5 22 16 22H8C4.5 22 3 20 3 17V8.5C3 5.5 4.5 3.5 8 3.5H16C19.5 3.5 21 5.5 21 8.5Z"
+                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15.7 13.7H15.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M15.7 16.7H15.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M12 13.7H12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M12 16.7H12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M8.3 13.7H8.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M8.3 16.7H8.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="txt">
+        <b>D-4</b>
+        <small>교양 조별 발표</small>
+      </div>
+    </li>
+    <li class="dday notice">
+      <div class="dday-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+             class="dday-icon-svg" fill="none" aria-hidden="true">
+          <path d="M8 2V5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 2V5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M3.5 9.09H20.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 8.5V17C21 20 19.5 22 16 22H8C4.5 22 3 20 3 17V8.5C3 5.5 4.5 3.5 8 3.5H16C19.5 3.5 21 5.5 21 8.5Z"
+                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15.7 13.7H15.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M15.7 16.7H15.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M12 13.7H12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M12 16.7H12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M8.3 13.7H8.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M8.3 16.7H8.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="txt">
+        <b>D-8</b>
+        <small>추가 과제</small>
+      </div>
+    </li>
+  </ul>
+  </section>
+
+  <section class="dash-notes">
+  <h3 class="dash-card-title">Notes</h3>
+
+  <div class="note-card">
+    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35"
+         viewBox="0 0 35 35" fill="none" aria-hidden="true">
+      <path d="M16.0416 24.7917H18.9583V18.9584H24.7916V16.0417H18.9583V10.2084H16.0416V16.0417H10.2083V18.9584H16.0416V24.7917ZM17.5 32.0834C15.4826 32.0834 13.5868 31.7006 11.8125 30.935C10.0382 30.1694 8.49475 29.1303 7.18225 27.8178C5.86975 26.5053 4.83069 24.9619 4.06506 23.1876C3.29944 21.4133 2.91663 19.5174 2.91663 17.5001C2.91663 15.4827 3.29944 13.5869 4.06506 11.8126C4.83069 10.0383 5.86975 8.49487 7.18225 7.18237C8.49475 5.86987 10.0382 4.83081 11.8125 4.06519C13.5868 3.29956 15.4826 2.91675 17.5 2.91675C19.5173 2.91675 21.4132 3.29956 23.1875 4.06519C24.9618 4.83081 26.5052 5.86987 27.8177 7.18237C29.1302 8.49487 30.1692 10.0383 30.9349 11.8126C31.7005 13.5869 32.0833 15.4827 32.0833 17.5001C32.0833 19.5174 31.7005 21.4133 30.9349 23.1876C30.1692 24.9619 29.1302 26.5053 27.8177 27.8178C26.5052 29.1303 24.9618 30.1694 23.1875 30.935C21.4132 31.7006 19.5173 32.0834 17.5 32.0834ZM17.5 29.1667C20.7569 29.1667 23.5156 28.0365 25.776 25.7761C28.0364 23.5157 29.1666 20.757 29.1666 17.5001C29.1666 14.2431 28.0364 11.4845 25.776 9.22404C23.5156 6.96362 20.7569 5.83341 17.5 5.83341C14.243 5.83341 11.4843 6.96362 9.22392 9.22404C6.9635 11.4845 5.83329 14.2431 5.83329 17.5001C5.83329 20.757 6.9635 23.5157 9.22392 25.7761C11.4843 28.0365 14.243 29.1667 17.5 29.1667Z"
+            fill="#919191" fill-opacity="0.73"/>
+    </svg>
+  </div>
+</section>
+
+
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

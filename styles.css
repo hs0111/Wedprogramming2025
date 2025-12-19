@@ -1,0 +1,1113 @@
+:root{
+  --app-bg:#F3F7FB;
+  --panel:#FFFFFF;
+  --sidebar:#F7FAFC;
+  --border:#E5E9F0;
+  --muted:#7E7E7E;
+  --text:#202020;
+  --shadow: 0 10px 30px rgba(15,23,42,.08);
+
+  --sun:#E16060;
+  --sat:#3C6FE8;
+
+  --chip:#FFFFFF;
+  --chip-border: rgba(197,197,197,.50);
+
+  --primary:#4EAAC3;
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", Arial, sans-serif;
+  background: var(--app-bg);
+  color: var(--text);
+}
+
+/* ===== App frame (Figma 1440x1024 느낌) ===== */
+.app{
+  width:min(1440px, 100%);
+  height:min(1024px, 100vh);
+  margin:0 auto;
+  background: var(--panel);
+  display:grid;
+  grid-template-columns: 260px 1fr;
+  border-left:1px solid var(--border);
+  border-right:1px solid var(--border);
+}
+
+/* ===== Sidebar ===== */
+.sidebar{
+  background: var(--sidebar);
+  border-right:1px solid var(--border);
+  padding:24px 20px;
+  display:flex;
+  flex-direction:column;
+  gap:28px;
+  overflow:auto;
+}
+/* ===== Brand (현서 Calendar) ===== */
+.sidebar-brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  align-self:stretch;
+}
+
+.sidebar-brand__logo{
+  width:36px;
+  height:36px;
+  display:grid;
+  place-items:center;
+  flex:0 0 36px;
+  border-radius:10px;
+}
+
+.sidebar-brand__title{
+  align-self:stretch;
+  color:#4EAAC3;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", Arial, sans-serif;
+  font-size:28px;
+  font-style:normal;
+  font-weight:500;
+  line-height:36px;
+}
+
+.sidebar-nav{
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  gap:16px;
+  align-self:stretch;
+  margin:0;
+}
+
+.sidebar-nav__item{
+  display:flex;
+  align-items:center;
+  gap:12px;              
+  width:100%;
+
+  text-decoration:none;
+  color: var(--color-gray-100, #202020);
+
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", Arial, sans-serif;
+  font-size:20px;
+  font-style:normal;
+  font-weight:500;
+  line-height:28px;
+
+  padding:14px 16px;       
+  border-radius:16px;
+
+  border:1px solid transparent;
+  background:transparent;
+}
+
+.sidebar-nav__label{
+  flex: 1 0 0;
+}
+
+/* 아이콘 틀 */
+.sidebar-nav__icon{
+  width:24px;
+  height:24px;
+  flex-shrink:0;
+  display:grid;
+  place-items:center;
+}
+
+.sidebar-nav__icon svg{
+  width:24px;
+  height:24px;
+  display:block;
+}
+
+.sidebar-nav__item.is-active{
+  background:#EEF2F3; 
+}
+
+/* hover */
+.sidebar-nav__item:hover{
+  background: rgba(238,242,243,.7);
+}
+
+.sidebar-nav__item:focus-visible{
+  outline:2px solid rgba(78,170,195,.35);
+  outline-offset:2px;
+}
+
+.section h3{
+  margin:0 0 10px 0;
+  font-size:13px;
+  color:#666;
+  font-weight:700;
+}
+
+/* 2열 그리드 */
+.category-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:12px;
+}
+
+/* 카드 */
+.cat{
+  border:1px solid #C5C5C5;
+  background:#fff;
+  border-radius:16px;    
+  padding:14px 10px;
+  height:78px;            
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center; 
+  gap:8px;
+  cursor:pointer;
+  color:#7E7E7E;           
+}
+
+.cat-icon{
+  width:22px;
+  height:22px;
+  display:grid;
+  place-items:center;
+}
+
+.cat-icon svg{
+  width:100%;
+  height:100%;
+  display:block;
+  color:inherit;
+}
+
+.cat-label{
+  font-weight:700;
+  color:#8A8A8A; 
+  font-size:16px;
+}
+
+
+.cat:hover{
+  background:#F7FAFC;
+}
+.cat:active{
+  transform: translateY(1px);
+}
+.cat:focus-visible{
+  outline:2px solid rgba(78,170,195,.35);
+  outline-offset:2px;
+}
+
+
+.dday-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.dday{
+  border:1px solid #C5C5C5;
+  background:#fff;
+  border-radius:16px;
+  padding:14px 16px;
+  display:flex;
+  align-items:center;
+  gap:14px;            
+  min-height:76px;       
+}
+
+.dday:hover{
+  background:#F7FAFC;
+}
+
+.dday:active{
+  transform: translateY(1px);
+}
+
+.dday:focus-visible{
+  outline:2px solid rgba(78,170,195,.35);
+  outline-offset:2px;
+}
+
+.dday-icon{
+  width:46px;
+  height:46px;
+  border-radius:999px;
+  display:grid;
+  place-items:center;
+  flex:0 0 46px;        
+}
+
+.dday-icon-svg{
+  width:22px;
+  height:22px;
+  display:block;
+}
+
+.dday .txt{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  line-height:1.1;
+}
+
+.dday .txt b{
+  font-size:18px;
+  font-weight:800;
+}
+
+.dday .txt small{
+  font-size:14px;
+  color:inherit;
+}
+
+.dday.danger{
+  color:#E90404;
+}
+.dday.danger .dday-icon{
+  background:#FFC0C0;
+}
+
+.dday.warn{
+  color:#F99100;
+}
+.dday.warn .dday-icon{
+  background:#FFD7C0;
+}
+
+.dday.notice{
+  color:#FFE100;          /* 텍스트/아이콘 색 */
+}
+
+.dday.notice .dday-icon{
+  background:#FFF67E;     /* 노란 동그라미 배경 */
+}
+
+/* ===== Main ===== */
+.main{
+  padding:24px 32px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+
+  overflow:hidden;  /* main은 유지 */
+  min-height:0;
+}
+
+/* panel(연도 캘린더 박스)만 스크롤 */
+.panel{
+  overflow:auto;
+  min-height:0;
+  padding-bottom:40px;
+}
+
+/* Top bar */
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.topbar .left{
+  font-size:24px;
+  font-weight:800;
+}
+.controls{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.btn{
+  border:1px solid var(--chip-border);
+  background:var(--chip);
+  border-radius:8px;
+  padding:6px 10px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  cursor:pointer;
+  height:34px;
+  color:#202020;
+}
+.btn.icon{ width:34px; justify-content:center; padding:0; }
+.btn.primary{
+  background: var(--primary);
+  border-color: transparent;
+  color:#fff;
+  font-weight:700;
+  text-decoration:none;
+}
+.btn:focus{ outline: 2px solid rgba(78,170,195,.35); outline-offset:2px; }
+
+/* View-mode dropdown (중요: 월▼ 한 자리에서 D/W/M/Y) */
+.viewmode{
+  position:relative;
+}
+.menu{
+  position:absolute;
+  right:0;
+  top: calc(100% + 8px);
+  width:160px;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:12px;
+  box-shadow: var(--shadow);
+  padding:6px;
+  display:none;
+  z-index:50;
+}
+.menu.open{ display:block; }
+.menu button{
+  width:100%;
+  border:0;
+  background:transparent;
+  padding:10px 10px;
+  border-radius:10px;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:14px;
+}
+.menu button:hover{ background:#F3F6FB; }
+.menu button.selected{ font-weight:800; color:#1A7CCF; }
+.kbd{
+  font-size:12px;
+  color:#999;
+}
+
+/* Calendar panel */
+.panel{
+  flex:1;
+  border:1px solid #EDF0F5;
+  background:#fff;
+  border-radius:16px;
+  padding:16px 18px 18px;
+ overflow:auto;   /* ✅ hidden -> auto 로 변경 */
+  min-height:0; 
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+
+
+/* weekday header */
+.weekdays{
+  display:grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-bottom:1px solid #F0F2F5;
+  padding-bottom:10px;
+}
+.weekdays div{
+  text-align:center;
+  font-weight:800;
+  font-size:13px;
+  color:#666;
+}
+.weekdays .sun{ color: var(--sun); }
+.weekdays .sat{ color: var(--sat); }
+
+/* month grid */
+.month-grid{
+  flex:1;
+  display:grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap:0;
+  border:1px solid #F0F2F5;
+  border-radius:12px;
+  overflow:hidden;
+}
+.cell{
+  border-right:1px solid #F0F2F5;
+  border-bottom:1px solid #F0F2F5;
+  padding:8px 8px 6px;
+  position:relative;
+  min-height:110px;
+}
+.cell:nth-child(7n){ border-right:0; }
+.cell:nth-last-child(-n+7){ border-bottom:0; }
+
+.daynum{
+  font-weight:700;
+  font-size:13px;
+}
+.muted{ color:#A0A0A0; }
+
+/* ✅ 캘린더 일정(저장된 일정 + 더미 일정) 공통 */
+.calendar-event{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  height: 28px;
+  padding: 0 20px;     /* height 28 유지 위해 세로 padding 제거 */
+
+  border-radius: 12px;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+
+  margin-top: 6px;
+
+  color: #202020;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ● 점 */
+.calendar-event::before{
+  content:"";
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  flex: 0 0 auto;
+}
+
+/* ================= 시험 ================= */
+.event-exam{ background:#FFEBEB; border-color:#FFC0C0; }
+.event-exam::before{ background:#EF6B69; }
+
+/* ================= 과제 ================= */
+.event-task{ background:#EFFFE9; border-color:#C4F9AA; }
+.event-task::before{ background:#92F371; }
+
+/* ================= 알바 ================= */
+.event-alba{ background:#FFFAE0; border-color:#F9ECAA; }
+.event-alba::before{ background:#F3DE71; }
+
+/* ================= 생일 ================= */
+.event-birthday{ background:#FFE7FB; border-color:#EEC2E7; }
+.event-birthday::before{ background:#ED69DA; }
+
+/* ================= 일상 ================= */
+.event-daily{ background:#EFE5FF; border-color:#C7AAF9; }
+.event-daily::before{ background:#A171F3; }
+
+/* ================= 여행 ================= */
+.event-trip{ background:#E9FAFF; border-color:#AAE6F9; }
+.event-trip::before{ background:#71D7F3; }
+
+/* ===== Modal Overlay ===== */
+.modal-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.35);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.modal-overlay.is-open{ display:flex; }
+
+body.modal-open{ overflow:hidden; }
+
+/* ===== 전체 틀 ===== */
+.modal-panel{
+  display: flex;
+  width: 558px;
+  padding: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 12px;
+  border-radius: 12px;
+  border: 0.5px solid #C5C5C5;
+  background: #FFF;
+}
+
+.modal-panel button,
+.modal-panel input,
+.modal-panel select{
+  font-family: inherit;
+}
+
+/* ===== "새로운 일정 추가" 틀 ===== */
+.modal-top{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  position: relative;
+  padding: 4px 0 8px;
+  border-bottom: 1px solid rgba(197,197,197,.35);
+}
+.modal-title{ font-size: 18px; font-weight: 700; color:#202020; }
+
+/* 닫기 버튼 */
+.modal-close{
+  position:absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+  display:grid;
+  place-items:center;
+  padding:0;
+}
+.modal-close svg{ width:20px; height:20px; display:block; }
+
+/* ===== Todo 입력 ===== */
+.modal-input{
+  display:flex;
+  height: 40px;
+  padding: 16px 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  align-self: stretch;
+  border-radius: 8px;
+  border: 0.5px solid rgba(197, 197, 197, 0.50);
+  background: #FFF;
+}
+.modal-input input{
+  width:100%;
+  border:0;
+  outline:0;
+  font-size: 14px;
+  background: transparent;
+}
+
+/* ===== 박스 공통 ===== */
+.modal-box{
+  width: 100%;
+  border-radius: 12px;
+  border: 0.5px solid rgba(197, 197, 197, 0.50);
+  padding: 12px 0;
+}
+.modal-box-head{
+  display:flex;
+  padding: 8px 16px;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  border-bottom: 1px solid rgba(197,197,197,.25);
+}
+.modal-box-left{
+  display:flex;
+  width: 105px;
+  align-items: center;
+  gap: 9px;
+  color:#7E7E7E;
+  font-size: 14px;
+  font-weight:600;
+}
+.modal-box-left svg{ width:18px; height:17px; display:block; }
+
+/* D-day 표시하기 버튼 */
+.dday-toggle{
+  display:flex;
+  height: 23px;
+  padding: 4px 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  border: 0.6px solid #C5C5C5;
+  background:#fff;
+  cursor:pointer;
+  font-size: 12px;
+  color:#666;
+}
+.dday-toggle.is-on{
+  background:#EEF2F3;
+  color:#202020;
+}
+
+/* ===== 3열 2행 ===== */
+.modal-cat-grid{
+  display:flex;
+  align-items:center;
+  gap: 61px;
+  flex-wrap: wrap;
+  padding: 16px;
+  justify-content: center;
+}
+.modal-cat{
+  display:flex;
+  width: 112px;
+  padding: 12px 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 12px;
+  border: 1px solid #C5C5C5;
+  background:#fff;
+  cursor:pointer;
+  color:#7E7E7E;
+}
+.modal-cat svg{ width:18px; height:20px; display:block; color:#7E7E7E; }
+.modal-cat.is-selected{
+  border-color:#4EAAC3;
+  box-shadow: 0 0 0 3px rgba(78,170,195,.18);
+}
+.modal-cat.is-selected .modal-cat-label{ color:#202020; }
+.modal-cat-label{ font-weight:700; }
+
+/* 날짜 */
+.modal-date-row{
+  padding: 12px 16px 16px;
+}
+.modal-field{
+  display:flex;
+  flex-direction: column;
+  gap: 8px;
+  color:#7E7E7E;
+  font-size: 13px;
+  font-weight:600;
+}
+.modal-field input{
+  height: 40px;
+  border-radius: 8px;
+  border: 0.5px solid rgba(197, 197, 197, 0.50);
+  padding: 0 12px;
+}
+
+/* 메모 */
+.modal-memo{
+  display:flex;
+  height: 40px;
+  padding: 16px 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  align-self: stretch;
+  border-radius: 8px;
+  border: 0.5px solid rgba(197, 197, 197, 0.50);
+  background: #FFF;
+}
+.modal-memo input{
+  width:100%;
+  border:0;
+  outline:0;
+  font-size: 14px;
+  background: transparent;
+}
+
+/* 하단 액션 */
+.modal-actions{
+  width:100%;
+  display:flex;
+  justify-content: flex-end;
+  align-items:center;
+  gap: 12px;
+  margin-top: 4px;
+}
+.modal-cancel{
+  border:0;
+  background:transparent;
+  cursor:pointer;
+  color:#7E7E7E;
+  font-weight:600;
+  padding:8px 10px;
+}
+.modal-save{
+  border:0;
+  cursor:pointer;
+  padding: 8px 14px;
+  border-radius: 10px;
+  background:#4EAAC3;
+  color:#fff;
+  font-weight:700;
+}
+
+.pill.user{
+  border: 1px solid rgba(0,0,0,.05);
+  font-weight: 600;
+}
+
+/* ===== Year View ===== */
+
+#yearGrid{
+  width: 100%;
+}
+
+.year-grid{
+  display:grid;
+  grid-template-columns: repeat(4, 175px);
+  column-gap: 90px;
+  row-gap: 70px;
+  padding: 28px 22px;
+}
+
+/* 한 달 프레임(너가 준 값 그대로) */
+.year-month{
+  display:flex;
+  width:175px;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:18px;
+}
+
+.year-month__title{
+  font-size:20px;
+  font-weight:800;
+  margin:0;
+}
+
+/* 요일 줄 */
+.year-month__dow{
+  width:100%;
+  display:grid;
+  grid-template-columns: repeat(7, 1fr);
+  justify-items:center;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.02em;
+  margin-top:4px;
+}
+.year-month__dow .sun{ color:#E90404; }
+.year-month__dow .sat{ color:#0066FF; }
+
+/* 날짜 6행(42칸) 고정 => 달마다 크기/간격 동일 */
+.year-month__days{
+  width:100%;
+  display:grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: 22px;
+  row-gap: 10px;
+  justify-items:center;
+  align-items:center;
+}
+
+/* 날짜 숫자 */
+.year-day{
+  width:22px;
+  height:22px;
+  display:grid;
+  place-items:center;
+  font-size:13px;
+  font-weight:700;
+  position:relative;
+  border-radius:999px;
+}
+
+/* 다른 달(앞/뒤) 회색 */
+.year-day.is-other{
+  color:#9AA0A6;
+  font-weight:600;
+}
+
+.year-day.is-today{
+  background: rgba(78, 170, 195, 0.30);
+}
+
+/* ===== Week View ===== */
+.week-grid{
+  display:grid;
+  grid-template-columns: 120px repeat(7, 1fr);
+  grid-template-rows: 56px repeat(6, 110px);
+  border: 1px solid #EDF0F5;
+  border-radius: 16px;
+  overflow: hidden;
+  background:#fff;
+}
+
+.week-cell{
+  border-right:1px solid #F0F2F5;
+  border-bottom:1px solid #F0F2F5;
+  padding:12px;
+}
+
+.week-cell:nth-child(8n){ border-right:0; } /* 1(시간)+7일 = 8칸 단위 */
+
+.week-head{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  align-items:center;
+  justify-content:center;
+  padding:10px 6px;
+}
+
+.week-head .dow{
+  font-size:14px;
+  font-weight:800;
+  color:#202020;
+}
+.week-head .date{
+  font-size:14px;
+  font-weight:800;
+  color:#202020;
+}
+
+.week-head.sun .dow, .week-head.sun .date{ color: var(--sun); }
+.week-head.sat .dow, .week-head.sat .date{ color: var(--sat); }
+
+.week-time{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  font-weight:800;
+  color:#202020;
+}
+.week-time .t1{ font-size:16px; }
+.week-time .t2{ font-size:14px; font-weight:700; color:#444; }
+
+.week-event{
+  margin-top:6px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  height:28px;
+  padding:0 12px;
+  border-radius:12px;
+  border:1px solid transparent;
+  font-size:12px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.week-event.event-exam{ background:#FFEBEB; border-color:#FFC0C0; }
+.week-event.event-task{ background:#EFFFE9; border-color:#C4F9AA; }
+.week-event.event-alba{ background:#FFFAE0; border-color:#F9ECAA; }
+.week-event.event-birthday{ background:#FFE7FB; border-color:#EEC2E7; }
+.week-event.event-daily{ background:#EFE5FF; border-color:#C7AAF9; }
+.week-event.event-trip{ background:#E9FAFF; border-color:#AAE6F9; }
+
+
+/* ===== Dashboard Top Layout ===== */
+.dash-top{
+  display: grid;
+  grid-template-columns: 320px 236px 236px; /* 미니캘 1칸 + D-day + Notes */
+  gap: 40px;              /* 원하는 균일 간격 */
+  align-items: start;     /* 세로 흔들림 방지 */
+}
+
+.dash-dday h3,
+.dash-notes h3{
+  margin: 0 0 13px 0;     
+}
+
+.dash-dday,
+.dash-notes{
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  width: 236px;        
+}
+
+/* ===== D-day ===== */
+.dash-dday{
+  display: flex;
+  width: 236px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.dash-card-title{
+  font-size: 18px;
+  font-weight: 700;
+  color:#202020;
+}
+
+.dday-card{
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: 1px solid #E5E5E5;
+  background:#fff;
+}
+
+.dday-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 13px; /* Notes랑 동일 */
+}
+
+
+.dday-num{
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.dday-text{
+  font-size: 13px;
+  color:#555;
+}
+
+/* 상태별 */
+/* li.dday.notice 에 적용 */
+.dday.notice{
+ 
+  color:#FFE100; 
+}
+
+.dday.notice .dday-icon{
+  background:#FFF67E;     /* 노란 동그라미 배경 */
+}
+
+.dday.danger{
+  color:#E90404;
+}
+.dday.danger .dday-icon{
+  background:#FFC0C0;
+}
+.dday.warn{
+  color:#F99100;
+}
+.dday.warn .dday-icon{
+  background:#FFD7C0;
+}
+
+
+
+/* ===== Dashboard Notes Card ===== */
+.dash-notes{
+  display: flex;
+  width: 236px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.note-card,
+.dday-list li{
+  display: flex;
+  width: 236px;
+  height: 75px;
+  padding: 16px 20px;
+  align-items: center;
+  gap: 14px;
+
+  border-radius: 16px;
+  border: 1px solid var(--color-gray-40, #C5C5C5);
+  background: var(--color-gray-10, #FFF);
+}
+
+.note-card:hover{
+  background:#F7F8F9;
+}
+
+/* ===== Dashboard Notes Card ===== */
+.dash-notes{
+  display: flex;
+  width: 236px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.note-card{
+  display: flex;
+  width: 236px;
+  height: 75px;
+  padding: 16px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border-radius: 16px;
+  border: 1px solid var(--color-gray-40, #C5C5C5);
+  background: var(--color-gray-10, #FFF);
+}
+
+
+.note-card:hover{
+  background:#F7F8F9;
+}
+
+
+/* ===== Mini Calendar Card (Dashboard) ===== */
+.mini-cal{
+  display: inline-flex;
+  padding: 8px 32px 12px 25px;
+  flex-direction: column;
+  border-radius: 20px;
+  border: 5px solid rgba(0, 0, 0, 0.15);
+  background: #fff;
+  width: 320px; /* grid-template 1칸과 맞추기 */
+}
+
+/* 상단 월 라벨 */
+.mini-cal__month{
+  font-size: 20px;
+  font-weight: 800;
+  color:#202020;
+}
+
+/* 요일 */
+.mini-cal__dow{
+  display:grid;
+  grid-template-columns: repeat(7, 1fr);
+  font-size: 12px;
+  font-weight: 700;
+  color:#202020;
+  gap: 10px;
+}
+.mini-cal__dow .sun{ color:#EF6B69; }
+.mini-cal__dow .sat{ color:#4EAAC3; }
+
+/* 날짜 그리드 */
+.mini-cal__grid{
+  display:grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+/* 날짜 셀 */
+.mini-cal__day{
+  height: 40px;                
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size: 14px;
+  font-weight: 700;
+  color:#202020;
+  position: relative;
+  user-select:none;
+}
+
+.mini-cal__day.is-muted{
+  color: rgba(32,32,32,.35);
+}
+
+.mini-cal__day.is-today::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  margin:auto;
+  width:40px;                    /* ✅ width: 40px */
+  height:40px;                   /* ✅ height: 40px */
+  background: center/contain no-repeat url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40' fill='none'>\
+  <circle cx='20' cy='20' r='20' fill='%234EAAC3' fill-opacity='0.3'/>\
+</svg>");
+  z-index:0;
+}
+
+.mini-cal__day span{
+  position:relative;
+  z-index:1;
+}
+
